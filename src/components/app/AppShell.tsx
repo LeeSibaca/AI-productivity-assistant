@@ -11,6 +11,7 @@ import {
   X,
   Sparkles,
 } from "lucide-react";
+import { ThemeToggle } from "@/components/app/ThemeToggle";
 
 const nav = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard },
@@ -58,7 +59,8 @@ function SidebarInner({ onNavigate }: { onNavigate?: (() => void) | undefined })
         </div>
       </div>
       <NavList onNavigate={onNavigate} />
-      <div className="mt-auto p-4">
+      <div className="mt-auto space-y-3 p-4">
+        <ThemeToggle />
         <p className="rounded-lg border border-sidebar-border/70 p-3 text-[11px] leading-relaxed text-sidebar-foreground/60">
           AI output can be inaccurate. Always review and edit before sharing externally.
         </p>
@@ -86,6 +88,9 @@ export function AppShell({ children }: { children: ReactNode }) {
             {open ? <X className="size-4" /> : <Menu className="size-4" />}
           </button>
           <span className="font-display text-sm font-semibold">Workplace AI</span>
+          <div className="ml-auto">
+            <ThemeToggle variant="bar" />
+          </div>
         </header>
 
         {open && (
